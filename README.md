@@ -29,17 +29,11 @@ Les images sont dans `assets/img/` (extraites des maquettes, format WebP).
 - **Responsive** : menu burger sous 900 px, grilles et typographies adaptées
   (tablette et mobile), modale plein écran sur mobile.
 
-## À compléter avant la mise en ligne
+## À compléter
 
-1. **Photo du héros de l'accueil** : l'image d'origine (visuel généré « Dijon ») n'était
-   pas incluse dans l'export. Remplacez `assets/img/hero-accueil.webp` par votre visuel
-   (actuellement une photo du Mid Century en attendant).
-2. **Clé SuperHote du Clos de Saint Jo** : dans `le-clos-de-saint-jo.html`, l'URL de la
-   modale contient encore `PROPERTY_KEY_CLOS_SAINT_JO_A_COMPLETER` (comme dans la
-   maquette). Remplacez-la par la vraie clé `propertyKey…` du logement.
-3. **Liens morts** (`href="#"`) : Journal, Destination, mentions légales, CGV,
+1. **Liens morts** (`href="#"`) : Journal, mentions légales, CGV,
    réseaux sociaux — à brancher quand les pages existeront.
-4. **Calendrier iCal (optionnel)** : si vous souhaitez un jour afficher les
+2. **Calendrier iCal (optionnel)** : si vous souhaitez un jour afficher les
    disponibilités sans iframe, voir `docs/note-technique-calendrier-superhote.md`
    (proxy iCal même-origine à mettre en place côté serveur).
 
