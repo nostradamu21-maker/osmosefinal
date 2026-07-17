@@ -1,0 +1,26 @@
+name: Déploiement GitHub Pages
+
+# Reconstruit le site GitHub Pages à chaque push sur main.
+# Les pushs effectués via l'intégration Claude ne déclenchent pas la
+# reconstruction Pages automatique : ce workflow force la reconstruction
+# (et reste déclenchable à la main via « Run workflow »).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  contents: read
+
+jobs:
+  rebuild-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Demander une reconstruction Pages
+        run: |
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds"
