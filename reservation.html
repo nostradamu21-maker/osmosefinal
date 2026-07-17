@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réservation directe — Signatures Dijon</title>
+<meta name="description" content="Consultez les disponibilités en temps réel de toutes les adresses Signatures et réservez en direct, au meilleur tarif.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%233F4636'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' fill='%23F2EFE6' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F7F3EE; }
+  ::selection { background: #C9A892; color: #2A2520; }
+  #bookingengine { border: 0; display: block; width: 100%; }
+  .superhote-frame { height: 1050px; }
+  @media (max-width: 980px) {
+    .superhote-frame { height: 1500px; }
+  }
+  @media (max-width: 640px) {
+    .superhote-frame { height: 2100px; }
+  }
+
+
+html{scroll-behavior:smooth}
+img{max-width:100%}
+@media (max-width: 900px){
+  .mw{padding-left:28px !important;padding-right:28px !important}
+}
+@media (max-width: 560px){
+  .mw{padding-left:20px !important;padding-right:20px !important}
+}
+@media (max-width: 980px){
+  .site-footer-grid{grid-template-columns:1fr 1fr !important;gap:40px !important}
+}
+@media (max-width: 600px){
+  .site-footer-grid{grid-template-columns:1fr !important}
+}
+@media (max-width: 700px){
+  .footer-bottom{flex-direction:column;gap:10px;align-items:flex-start !important}
+}
+
+.nav-burger{color:#544A40}
+@media (max-width: 860px){
+  .trio-grid{grid-template-columns:1fr !important}
+  .resa-intro h1{font-size:clamp(34px,8vw,56px) !important}
+}
+
+.nav-burger{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px 0;transition:transform .3s,opacity .3s}
+body.nav-open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .nav-burger span:nth-child(2){opacity:0}
+body.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width: 900px){
+  .site-nav{display:none !important}
+  .nav-burger{display:block}
+  body.nav-open .site-nav{display:flex !important;position:absolute;top:100%;left:0;right:0;flex-direction:column !important;align-items:flex-start !important;gap:18px !important;padding:22px 28px 26px;background:rgba(247,243,238,.97);border-bottom:1px solid rgba(60,50,40,.1);backdrop-filter:blur(12px)}
+  body.nav-open .site-nav a{color:#463C33 !important;font-size:15px !important}
+}
+@media (max-width: 560px){ .concierge{display:none} }
+
+.img-slot{display:block}
+.hv1:hover{color:#5B664A !important}
+.hv2:hover{background:#4C5640 !important}
+.hv3:hover{color:#fff !important}
+</style>
+</head>
+<body>
+<div style="font-family:'Jost',sans-serif;color:#463C33;background:#F7F3EE;overflow-x:hidden">
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,243,238,.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(60,50,40,.08)">
+    <div class="mw" style="max-width:1280px;margin:0 auto;padding:18px 48px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;letter-spacing:.1em;color:#3A322B;padding-left:.1em">S</div>
+        <div style="width:1px;height:26px;background:rgba(60,50,40,.18)"></div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:22px;color:#241F1A;line-height:.95">Signatures</div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:#9A8B73;margin-top:2px">Maison d'adresses</div>
+        </div>
+      </div>
+      <nav class="site-nav" style="display:flex;align-items:center;gap:34px">
+        <a class="hv1" href="index.html" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:#544A40;text-decoration:none">La Maison</a>
+        <a class="hv1" href="index.html#adresses" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:#544A40;text-decoration:none">Les Adresses</a>
+        <a class="hv1" href="index.html#envies" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:#544A40;text-decoration:none">Expériences</a>
+        <a class="hv1" href="#" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:#544A40;text-decoration:none">Destination</a>
+        <a class="hv1" href="#" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:#544A40;text-decoration:none">Journal</a>
+      </nav>
+      <div class="nav-right" style="display:flex;align-items:center;gap:20px">
+        <a href="index.html#concierge" style="display:flex;align-items:center;gap:7px;text-decoration:none"><span style="width:7px;height:7px;border-radius:50%;background:#5B664A"></span><span style="font-family:'Jost',sans-serif;font-size:13px;color:#544A40">Le Concierge</span></a>
+        <a class="hv2" href="#moteur" style="background:#5B664A;color:#F7F3EE;padding:12px 24px;font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;text-decoration:none">Réserver</a>
+      </div>
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="document.body.classList.toggle('nav-open');this.setAttribute('aria-expanded',document.body.classList.contains('nav-open'))"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- INTRO BAND -->
+  <section style="background:#4E5742;position:relative">
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(247,243,238,.03) 0 22px,transparent 22px 44px)"></div>
+    <div class="resa-intro mw" style="position:relative;max-width:1280px;margin:0 auto;padding:84px 48px 76px">
+      <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:rgba(247,243,238,.6)">Réservation directe</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:56px;line-height:1.08;color:#F7F3EE;margin-top:18px;max-width:760px">Vérifiez vos dates,<br><span style="font-style:italic">réservez au plus près de la Maison.</span></h1>
+      <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:17px;line-height:1.6;color:rgba(247,243,238,.82);margin-top:22px;max-width:560px">Consultez en temps réel les disponibilités de toutes nos adresses et réservez en direct — sans intermédiaire, au meilleur tarif, avec l'accueil signé Signatures.</p>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div style="background:#EFE7DB;border-bottom:1px solid rgba(60,50,40,.07)">
+    <div class="mw" style="max-width:1280px;margin:0 auto;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Réservation directe, au meilleur tarif</span>
+      <span style="width:4px;height:4px;border-radius:50%;background:#C0A88E"></span>
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Paiement 100% sécurisé</span>
+      <span style="width:4px;height:4px;border-radius:50%;background:#C0A88E"></span>
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Confirmation immédiate</span>
+      <span style="width:4px;height:4px;border-radius:50%;background:#C0A88E"></span>
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Un accueil signé la Maison</span>
+    </div>
+  </div>
+
+  <!-- MOTEUR DE RÉSERVATION -->
+  <section class="mw" id="moteur" style="max-width:1180px;margin:0 auto;padding:84px 48px 40px">
+    <div class="section-head" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:34px;flex-wrap:wrap;gap:18px">
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8A9676">Disponibilités en direct</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;color:#241F1A;margin-top:14px;line-height:1.05">Choisissez vos <span style="font-style:italic">dates</span></h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:9px;background:#FAF7F1;border:1px solid rgba(60,50,40,.1);border-radius:999px;padding:9px 18px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#5B664A"></span>
+        <span style="font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:.04em;color:#6B5D4F">Calendrier mis à jour en temps réel</span>
+      </div>
+    </div>
+
+    <!-- MOTEUR DE RÉSERVATION SUPERHOTE -->
+    <div style="background:#F7F3EE;border-radius:16px;overflow:hidden;padding:8px">
+      <iframe
+        src="https://app.superhote.com/#/get-available-rentals/7QnQ9HxgCdO2jhGfIqs8wayvU"
+        title="Moteur de réservation Signatures"
+        class="superhote-frame"
+        style="width:100%;border:0;display:block;border-radius:12px"
+        scrolling="no"
+      ></iframe>
+    </div>
+
+    <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:12.5px;color:#9A8B73;margin-top:16px;text-align:center;line-height:1.5">Réservation et paiement opérés en toute sécurité sur notre moteur Signatures. En réservant en direct, vous bénéficiez du meilleur tarif et de l'accueil signé la Maison.</p>
+  </section>
+
+  <!-- CONCIERGE REASSURANCE -->
+  <section style="background:#EFE7DB;margin-top:48px">
+    <div class="trio-grid mw" style="max-width:1180px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px">
+      <div>
+        <div style="width:30px;height:30px;border:1px solid #5B664A;transform:rotate(45deg)"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:23px;color:#241F1A;margin-top:22px">Le meilleur tarif</div>
+        <div style="font-family:'Jost',sans-serif;font-size:14px;color:#6B6157;margin-top:8px;line-height:1.6">En direct, sans commission d'intermédiaire — le juste prix de la Maison.</div>
+      </div>
+      <div>
+        <div style="width:30px;height:30px;border:1px solid #5B664A;border-radius:50%"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:23px;color:#241F1A;margin-top:22px">Un accueil signé</div>
+        <div style="font-family:'Jost',sans-serif;font-size:14px;color:#6B6157;margin-top:8px;line-height:1.6">Des rituels et une écoute qui font la différence, à chaque adresse.</div>
+      </div>
+      <div>
+        <div style="width:30px;height:30px;border:1px solid #5B664A;border-radius:50% 50% 50% 0"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:23px;color:#241F1A;margin-top:22px">Une question ?</div>
+        <div style="font-family:'Jost',sans-serif;font-size:14px;color:#6B6157;margin-top:8px;line-height:1.6">Le Concierge vous oriente vers l'adresse juste et compose votre séjour.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#3F4636;color:#E7E3D8">
+    <div class="site-footer-grid mw" style="max-width:1280px;margin:0 auto;padding:72px 48px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:50px">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;letter-spacing:.1em;color:#F2EFE6;padding-left:.1em">S</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:#F2EFE6">Signatures</div>
+        </div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:rgba(231,227,216,.7);margin-top:20px;max-width:300px;line-height:1.4">Des lieux singuliers, des expériences uniques.</p>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(231,227,216,.5);margin-bottom:18px">La Maison</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-family:'Jost',sans-serif;font-size:14px;color:rgba(231,227,216,.85)"><a class="hv3" href="#" style="color:inherit;text-decoration:none">Notre histoire</a><a class="hv3" href="index.html#adresses" style="color:inherit;text-decoration:none">Les adresses</a><a class="hv3" href="#" style="color:inherit;text-decoration:none">Expériences</a><a class="hv3" href="#" style="color:inherit;text-decoration:none">Le Journal</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(231,227,216,.5);margin-bottom:18px">Réserver</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-family:'Jost',sans-serif;font-size:14px;color:rgba(231,227,216,.85)"><a class="hv3" href="#moteur" style="color:inherit;text-decoration:none">Réservation directe</a><a class="hv3" href="index.html#concierge" style="color:inherit;text-decoration:none">Le Concierge</a><a class="hv3" href="#" style="color:inherit;text-decoration:none">Carte cadeau</a><a class="hv3" href="#" style="color:inherit;text-decoration:none">Aide</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(231,227,216,.5);margin-bottom:18px">Rester proche</div>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;color:rgba(231,227,216,.85);line-height:1.5;margin-bottom:14px">Les nouvelles adresses, en avant-première.</p>
+        <div style="display:flex;background:rgba(247,243,238,.1);border:1px solid rgba(247,243,238,.2);border-radius:2px;overflow:hidden">
+          <span style="flex:1;padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;color:rgba(231,227,216,.55)">Votre e-mail</span>
+          <span style="background:#8A9676;color:#2C3320;padding:11px 16px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase">OK</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(247,243,238,.12)">
+      <div class="footer-bottom mw" style="max-width:1280px;margin:0 auto;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;font-family:'Jost',sans-serif;font-size:12px;color:rgba(231,227,216,.55)">
+        <span>© 2026 Signatures — Maison d'adresses singulières</span>
+        <span style="display:flex;gap:24px"><a href="#" style="color:inherit;text-decoration:none">Mentions légales</a><a href="#" style="color:inherit;text-decoration:none">Confidentialité</a><a href="#" style="color:inherit;text-decoration:none">Instagram</a></span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  if (document.body.classList.contains('nav-open') && !e.target.closest('header')) {
+    document.body.classList.remove('nav-open');
+  }
+});
+document.querySelectorAll('.site-nav a').forEach(function (a) {
+  a.addEventListener('click', function () { document.body.classList.remove('nav-open'); });
+});
+</script>
+</body>
+</html>

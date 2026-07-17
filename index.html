@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signatures — Maison d&#x27;adresses à Dijon</title>
+<meta name="description" content="Signatures réunit une collection confidentielle d&#x27;adresses singulières au cœur de Dijon : suites, appartements de caractère et séjours signés la Maison.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%233F4636'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' fill='%23F2EFE6' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F7F3EE; }
+  ::selection { background: #C9A892; color: #2A2520; }
+  @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.05); } }
+  @keyframes heroBgIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes heroFadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollNudge { 0%, 100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(6px); opacity: 1; } }
+  .hero-bg { animation: heroZoom 30s ease-in-out infinite alternate, heroBgIn 1.4s ease forwards; }
+  .hero-fade { opacity: 0; animation: heroFadeUp .9s ease forwards; }
+  .scroll-arrow { animation: scrollNudge 2.6s ease-in-out infinite; }
+  #site-header { --nav-fg: #F7F3EE; --nav-fg-dim: rgba(247,243,238,.78); --nav-bg: transparent; --nav-border: transparent; background: var(--nav-bg); border-bottom: 1px solid var(--nav-border); transition: background-color .6s ease, border-color .6s ease, backdrop-filter .6s ease; }
+  #site-header.nav-scrolled { --nav-fg: #241F1A; --nav-fg-dim: rgba(36,31,26,.7); --nav-bg: rgba(248,246,242,.92); --nav-border: rgba(60,50,40,.08); backdrop-filter: blur(10px); }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg, .hero-fade, .scroll-arrow { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+  image-slot { display:block; }
+  .envie-card { position:relative; display:block; text-decoration:none; color:inherit; border-radius:8px; overflow:hidden; }
+  .envie-card .envie-photo { transition: transform .6s cubic-bezier(.25,.1,.25,1); }
+  .envie-card:hover .envie-photo { transform: scale(1.03); }
+  .envie-card .envie-overlay { transition: background-color .5s ease; }
+  .envie-card:hover .envie-overlay { background-color: rgba(20,17,14,.3); }
+  .envie-card .envie-text { transition: transform .5s ease; }
+  .envie-card:hover .envie-text { transform: translateY(-6px); }
+  .envie-card .envie-arrow { display:inline-block; transition: transform .45s ease; }
+  .envie-card:hover .envie-arrow { transform: translateX(5px); }
+  .envie-pick { transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+  .envie-pick:hover { background:#FFFFFF; border-color:#8A9676; box-shadow:0 20px 40px -28px rgba(45,33,20,.22); transform:translateY(-6px); }
+  .envie-pick .envie-pick-title, .envie-pick .envie-pick-arrow, .envie-pick .envie-pick-rule { transition: transform .3s ease; }
+  .envie-pick:hover .envie-pick-title { transform: translateY(-3px); }
+  .envie-pick:hover .envie-pick-arrow { transform: translateX(4px); }
+  .envie-pick .envie-pick-rule { transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+  .envie-pick:hover .envie-pick-rule { transform: scaleX(1); }
+  .paper-section { position: relative; background: #F8F5F0; }
+  .paper-section::before { content: ''; position: absolute; inset: 0; opacity: .035; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .footer-link { color: inherit; text-decoration: none; display: inline-block; transition: color .28s ease, transform .28s ease; }
+  .footer-link:hover { color: #C9D8AE; transform: translateX(3px); }
+  @media (max-width: 760px) {
+    .footer-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  }
+  .adresses-grid { grid-template-columns: repeat(4,1fr); }
+  @media (max-width: 980px) {
+    .adresses-grid { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (max-width: 560px) {
+    .adresses-grid { grid-template-columns: 1fr !important; }
+  }
+  .adresse-card { transition: opacity .4s ease, transform .4s ease; }
+  .adresse-card .adresse-photo { transition: transform .6s cubic-bezier(.25,.1,.25,1); }
+  .adresse-card:hover .adresse-photo { transform: scale(1.03); }
+  .adresse-card .adresse-photo-tint { transition: background-color .4s ease; }
+  .adresse-card:hover .adresse-photo-tint { background-color: rgba(20,17,14,.16); }
+  .adresse-card .decouvrir-link { transition: text-decoration-color .3s ease, color .3s ease; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; }
+  .adresse-card:hover .decouvrir-link { text-decoration-color: currentColor; color: #5B664A; }
+
+
+html{scroll-behavior:smooth}
+img{max-width:100%}
+@media (max-width: 900px){
+  .mw{padding-left:28px !important;padding-right:28px !important}
+}
+@media (max-width: 560px){
+  .mw{padding-left:20px !important;padding-right:20px !important}
+}
+@media (max-width: 980px){
+  .site-footer-grid{grid-template-columns:1fr 1fr !important;gap:40px !important}
+}
+@media (max-width: 600px){
+  .site-footer-grid{grid-template-columns:1fr !important}
+}
+@media (max-width: 700px){
+  .footer-bottom{flex-direction:column;gap:10px;align-items:flex-start !important}
+}
+
+.nav-burger{color:var(--nav-fg)}
+@media (max-width: 980px){ .footer-grid{grid-template-columns:1fr 1fr !important;gap:44px !important} }
+@media (max-width: 980px){
+  .envies-grid{grid-template-columns:1fr 1fr !important}
+  .promo-grid{grid-template-columns:1fr !important;gap:56px !important}
+}
+@media (max-width: 900px){
+  .journal-grid{grid-template-columns:1fr !important}
+}
+@media (max-width: 760px){
+  .home-hero{height:auto !important;min-height:640px}
+  .home-hero .hero-content{padding-left:0 !important;padding-top:140px !important;padding-bottom:120px}
+  .home-hero h1{font-size:clamp(32px,9vw,44px) !important}
+  .home-hero .hero-scrim{width:100vw !important;left:-28px !important;bottom:-80px !important}
+  .section-head{flex-direction:column;align-items:flex-start !important;gap:18px}
+  .trust-row{justify-content:center !important}
+}
+@media (max-width: 560px){
+  .envies-grid{grid-template-columns:1fr !important}
+}
+
+.nav-burger{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px 0;transition:transform .3s,opacity .3s}
+body.nav-open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .nav-burger span:nth-child(2){opacity:0}
+body.nav-open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width: 900px){
+  .site-nav{display:none !important}
+  .nav-burger{display:block}
+  body.nav-open .site-nav{display:flex !important;position:absolute;top:100%;left:0;right:0;flex-direction:column !important;align-items:flex-start !important;gap:18px !important;padding:22px 28px 26px;background:rgba(248,246,242,.97);border-bottom:1px solid rgba(60,50,40,.08);backdrop-filter:blur(12px)}
+  body.nav-open .site-nav a{color:#241F1A !important;font-size:15px !important}
+}
+@media (max-width: 560px){ .concierge{display:none} }
+
+.img-slot{display:block}
+.hv1:hover{color:#5B664A !important}
+.hv2:hover{background:var(--nav-fg) !important;color:var(--nav-bg) !important}
+.hv3:hover{background:#F7F3EE !important;color:#241F1A !important}
+.hv4:hover{gap:14px !important}
+.hv5:hover{transform:translateY(-6px) !important;box-shadow:0 36px 64px -28px rgba(45,33,20,.5) !important}
+.hv6:hover{background:#463C33 !important;color:#F7F3EE !important}
+.hv7:hover{opacity:.7 !important}
+.hv8:hover{opacity:.92 !important}
+</style>
+</head>
+<body>
+<div style="font-family:'Jost',sans-serif;color:#463C33;background:#F7F3EE;overflow-x:hidden">
+
+  <!-- HEADER -->
+  <header id="site-header" style="position:fixed;top:0;left:0;right:0;z-index:50">
+    <div class="mw" style="max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;margin-right:16px">
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;letter-spacing:.1em;color:var(--nav-fg);padding-left:.1em;transition:color .6s ease">S</div>
+        <div style="width:1px;height:26px;background:var(--nav-border);transition:background-color .6s ease"></div>
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:15px;letter-spacing:.18em;color:var(--nav-fg);transition:color .6s ease">SIGNATURES</div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--nav-fg-dim);margin-top:3px;line-height:1.4;transition:color .6s ease">Maison d'adresses<br>à Dijon</div>
+        </div>
+      </div>
+      <nav class="site-nav" style="display:flex;align-items:center;gap:20px;white-space:nowrap;flex-shrink:1;min-width:0">
+        <a class="hv1" href="#" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:var(--nav-fg);text-decoration:none;transition:color .6s ease">La Maison</a>
+        <a class="hv1" href="#adresses" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:var(--nav-fg);text-decoration:none;transition:color .6s ease">Les Adresses</a>
+        <a class="hv1" href="#envies" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:var(--nav-fg);text-decoration:none;transition:color .6s ease">Expériences</a>
+        <a class="hv1" href="#" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:var(--nav-fg);text-decoration:none;transition:color .6s ease">Destination</a>
+        <a class="hv1" href="#" style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;color:var(--nav-fg);text-decoration:none;transition:color .6s ease">Journal</a>
+      </nav>
+      <div class="nav-right" style="display:flex;align-items:center;gap:16px;flex-shrink:0">
+        <a class="hv2" href="#" style="background:transparent;color:var(--nav-fg);padding:11px 23px;font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;border:1px solid var(--nav-fg);text-decoration:none;transition:background .3s,color .3s">Réserver</a>
+      </div>
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="document.body.classList.toggle('nav-open');this.setAttribute('aria-expanded',document.body.classList.contains('nav-open'))"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="home-hero" style="position:relative;height:740px;overflow:hidden;display:flex;align-items:flex-start">
+    <div class="hero-bg" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,17,14,.14),rgba(20,17,14,.12)),url('assets/img/hero-accueil.webp');background-size:cover;background-position:center;filter:contrast(1.04) saturate(1.03)"></div>
+    <div class="mw" style="position:relative;max-width:1280px;margin:0 auto;padding:0 48px;width:100%;height:100%">
+      <div class="hero-content" style="max-width:560px;text-align:left;position:relative;padding-left:40px;padding-top:150px">
+        <div class="hero-scrim" style="position:absolute;top:-30px;bottom:-260px;left:-40px;width:640px;background:linear-gradient(180deg,rgba(8,7,6,.32) 0%,rgba(8,7,6,.28) 40%,rgba(8,7,6,.34) 78%,rgba(8,7,6,.42) 100%);z-index:-1"></div>
+        <h1 class="hero-fade" style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:54px;line-height:1.22;color:#F7F3EE;margin-top:0;animation-delay:.5s;text-shadow:0 1px 3px rgba(0,0,0,.6),0 4px 20px rgba(0,0,0,.45)">Des lieux d’exception pour des séjours qui vous ressemblent.</h1>
+        <div class="hero-fade" style="width:44px;height:1px;background:rgba(247,243,238,.4);margin-top:34px;animation-delay:.6s"></div>
+        <p class="hero-fade" style="font-family:'Jost',sans-serif;font-weight:300;font-size:19px;line-height:1.8;color:rgba(247,243,238,.9);margin-top:30px;max-width:440px;animation-delay:.75s;text-shadow:0 2px 14px rgba(0,0,0,.35)">Signatures réunit une collection confidentielle d’adresses singulières au cœur de Dijon. Chaque maison a été choisie avec exigence pour son caractère, son confort et son emplacement privilégié.</p>
+
+        <a href="#adresses" class="hv3 hero-fade" style="display:inline-flex;align-items:center;gap:9px;margin-top:48px;padding:12px 26px;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F7F3EE;background:transparent;border:1px solid rgba(247,243,238,.5);border-radius:2px;text-decoration:none;transition:background .3s,color .3s;animation-delay:1s">Découvrir la collection →</a>
+      </div>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:30px;display:flex;flex-direction:column;align-items:center;gap:8px">
+      <span style="font-family:'Jost',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,243,238,.65)">Découvrir</span>
+      <span class="scroll-arrow" style="font-family:'Jost',sans-serif;font-size:13px;color:rgba(247,243,238,.7)">↓</span>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div style="background:#EFE7DB;border-bottom:1px solid rgba(60,50,40,.07)">
+    <div class="trust-row mw" style="max-width:1280px;margin:0 auto;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Réservation directe, au meilleur tarif</span>
+      <span style="width:4px;height:4px;border-radius:50%;background:#C0A88E"></span>
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Paiement 100% sécurisé</span>
+      <span style="width:4px;height:4px;border-radius:50%;background:#C0A88E"></span>
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Un accueil signé la Maison</span>
+      <span style="width:4px;height:4px;border-radius:50%;background:#C0A88E"></span>
+      <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;color:#6B5D4F">Service à votre écoute</span>
+    </div>
+  </div>
+
+  <!-- ENTRER PAR L'ENVIE -->
+  <section id="envies" class="paper-section" style="margin-top:0">
+    <div class="mw" style="position:relative;max-width:1280px;margin:0 auto;padding:120px 48px 130px">
+    <div style="margin-bottom:76px;max-width:640px">
+      <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8A9676">Entrer par l'envie</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;color:#241F1A;margin-top:16px;line-height:1.05">Quel séjour <span style="font-style:italic">imaginez-vous</span> ?</h2>
+      <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#6B6157;margin-top:18px;max-width:440px">Choisissez une façon de voyager. Nous vous guidons vers les adresses qui lui correspondent.</p>
+    </div>
+
+    <div class="envies-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="envie-pick" data-envie="romantique" style="height:184px;background:#FEFCF9;border:1px solid rgba(60,50,40,.1);border-radius:6px;padding:36px;display:flex;flex-direction:column;justify-content:center;cursor:pointer">
+        <div class="envie-pick-title" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#241F1A">À deux</div>
+        <div class="envie-pick-rule" style="width:28px;height:1px;background:#8A9676;margin-top:12px"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:13px;color:#8A7E70;margin-top:14px">Spa privé · cheminée · intimité</div>
+        <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5B664A">Découvrir <span class="envie-pick-arrow" style="display:inline-block">→</span></div>
+      </div>
+      <div class="envie-pick" data-envie="bienetre" style="height:184px;background:#FEFCF9;border:1px solid rgba(60,50,40,.1);border-radius:6px;padding:36px;display:flex;flex-direction:column;justify-content:center;cursor:pointer">
+        <div class="envie-pick-title" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#241F1A">Bien-être</div>
+        <div class="envie-pick-rule" style="width:28px;height:1px;background:#8A9676;margin-top:12px"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:13px;color:#8A7E70;margin-top:14px">Se ressourcer · ralentir · prendre son temps</div>
+        <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5B664A">Découvrir <span class="envie-pick-arrow" style="display:inline-block">→</span></div>
+      </div>
+      <div class="envie-pick" data-envie="famille" style="height:184px;background:#FEFCF9;border:1px solid rgba(60,50,40,.1);border-radius:6px;padding:36px;display:flex;flex-direction:column;justify-content:center;cursor:pointer">
+        <div class="envie-pick-title" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#241F1A">En famille</div>
+        <div class="envie-pick-rule" style="width:28px;height:1px;background:#8A9676;margin-top:12px"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:13px;color:#8A7E70;margin-top:14px">Espace · confort · partager</div>
+        <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5B664A">Découvrir <span class="envie-pick-arrow" style="display:inline-block">→</span></div>
+      </div>
+      <div class="envie-pick" data-envie="amis" style="height:184px;background:#FEFCF9;border:1px solid rgba(60,50,40,.1);border-radius:6px;padding:36px;display:flex;flex-direction:column;justify-content:center;cursor:pointer">
+        <div class="envie-pick-title" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#241F1A">Entre amis</div>
+        <div class="envie-pick-rule" style="width:28px;height:1px;background:#8A9676;margin-top:12px"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:13px;color:#8A7E70;margin-top:14px">Retrouvailles · convivialité · grands espaces</div>
+        <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5B664A">Découvrir <span class="envie-pick-arrow" style="display:inline-block">→</span></div>
+      </div>
+      <div class="envie-pick" data-envie="pro" style="height:184px;background:#FEFCF9;border:1px solid rgba(60,50,40,.1);border-radius:6px;padding:36px;display:flex;flex-direction:column;justify-content:center;cursor:pointer">
+        <div class="envie-pick-title" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#241F1A">Professionnel</div>
+        <div class="envie-pick-rule" style="width:28px;height:1px;background:#8A9676;margin-top:12px"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:13px;color:#8A7E70;margin-top:14px">Calme · bureau · connexion rapide</div>
+        <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5B664A">Découvrir <span class="envie-pick-arrow" style="display:inline-block">→</span></div>
+      </div>
+      <div class="envie-pick" data-envie="dijon" style="height:184px;background:#FEFCF9;border:1px solid rgba(60,50,40,.1);border-radius:6px;padding:36px;display:flex;flex-direction:column;justify-content:center;cursor:pointer">
+        <div class="envie-pick-title" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;color:#241F1A">Découvrir Dijon</div>
+        <div class="envie-pick-rule" style="width:28px;height:1px;background:#8A9676;margin-top:12px"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:13px;color:#8A7E70;margin-top:14px">Patrimoine · gastronomie · centre historique</div>
+        <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5B664A">Découvrir <span class="envie-pick-arrow" style="display:inline-block">→</span></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- LES ADRESSES -->
+  <section class="mw" id="adresses" style="max-width:1280px;margin:0 auto;padding:64px 48px 40px">
+    <div class="section-head" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:46px">
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8A9676">La collection</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;color:#241F1A;margin-top:14px;line-height:1.05">Les <span style="font-style:italic">adresses</span></h2>
+      </div>
+      <a class="hv4" href="#" style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#5B664A;text-decoration:none;display:flex;align-items:center;gap:8px">Voir toutes les adresses →</a>
+    </div>
+
+    <div class="adresses-grid" style="display:grid;gap:28px">
+
+      <!-- OSMOSE -->
+      <a href="osmose.html" class="hv5 adresse-card" data-tags="romantique bienetre" style="background:#FAF7F1;border-radius:3px;box-shadow:0 22px 50px -30px rgba(45,33,20,.4);overflow:hidden;cursor:pointer;transition:all .35s;text-decoration:none;color:inherit;display:block">
+        <div style="position:relative;height:260px;border-radius:3px 3px 0 0;overflow:hidden">
+          <div class="img-slot adresse-photo" style="width:100%;height:100%;aspect-ratio:4/3;overflow:hidden"><img src="assets/img/adresse-osmose.webp" alt="Photo Osmose" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="adresse-photo-tint" style="position:absolute;inset:0;pointer-events:none"></div>
+          <div style="position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:7px;background:rgba(250,247,241,.94);border-radius:999px;padding:6px 13px"><span style="width:7px;height:7px;border-radius:50%;background:#C49A86"></span><span style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;color:#6B5D4F">Coup de cœur</span></div>
+          <div style="position:absolute;top:16px;right:16px;background:rgba(250,247,241,.94);border-radius:999px;padding:6px 13px;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;color:#6B5D4F">★ 4,9</div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:#C49A86"></div>
+        </div>
+        <div style="padding:26px 28px 28px">
+          <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A4765F">Provence · 2 voyageurs</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;color:#241F1A;margin-top:8px;line-height:1">Osmose</div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13.5px;color:#6B6157;margin-top:8px;line-height:1.5">Suite avec spa privatif — une parenthèse à deux.</div>
+          <div style="height:1px;background:rgba(60,50,40,.1);margin:20px 0 16px"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:8px"><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;letter-spacing:.06em;color:#3A322B;padding-left:.06em">S</span><span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#A89A86">une adresse Signatures</span></div>
+            <span class="decouvrir-link" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#A4765F">Découvrir →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- MID CENTURY -->
+      <a href="mid-century.html" class="hv5 adresse-card" data-tags="famille amis" style="background:#FAF7F1;border-radius:3px;box-shadow:0 22px 50px -30px rgba(45,33,20,.4);overflow:hidden;cursor:pointer;transition:all .35s;text-decoration:none;color:inherit;display:block">
+        <div style="position:relative;height:260px;border-radius:3px 3px 0 0;overflow:hidden">
+          <div class="img-slot adresse-photo" style="width:100%;height:100%;aspect-ratio:4/3;overflow:hidden"><img src="assets/img/adresse-lemid.webp" alt="Photo Mid Century" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="adresse-photo-tint" style="position:absolute;inset:0;pointer-events:none"></div>
+          <div style="position:absolute;top:16px;right:16px;background:rgba(250,247,241,.94);border-radius:999px;padding:6px 13px;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;color:#6B5D4F">★ 4,8</div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:#C0876A"></div>
+        </div>
+        <div style="padding:26px 28px 28px">
+          <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A8745A">Centre-ville · 6 voyageurs</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;color:#241F1A;margin-top:8px;line-height:1">Mid Century</div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13.5px;color:#6B6157;margin-top:8px;line-height:1.5">Appartement lumineux pensé pour les familles et les groupes.</div>
+          <div style="height:1px;background:rgba(60,50,40,.1);margin:20px 0 16px"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:8px"><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;letter-spacing:.06em;color:#3A322B;padding-left:.06em">S</span><span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#A89A86">une adresse Signatures</span></div>
+            <span class="decouvrir-link" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#A8745A">Découvrir →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- VAUBAN -->
+      <a href="into-the-wine.html" class="hv5 adresse-card" data-tags="pro dijon" style="background:#FAF7F1;border-radius:3px;box-shadow:0 22px 50px -30px rgba(45,33,20,.4);overflow:hidden;cursor:pointer;transition:all .35s;text-decoration:none;color:inherit;display:block">
+        <div style="position:relative;height:260px;border-radius:3px 3px 0 0;overflow:hidden">
+          <div class="img-slot adresse-photo" style="width:100%;height:100%;aspect-ratio:4/3;overflow:hidden"><img src="assets/img/adresse-vauban.webp" alt="Photo Vauban" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="adresse-photo-tint" style="position:absolute;inset:0;pointer-events:none"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:#A9AFAE"></div>
+        </div>
+        <div style="padding:26px 28px 28px">
+          <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7E8688">Cœur historique · 4 voyageurs</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;color:#241F1A;margin-top:8px;line-height:1">Vauban</div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13.5px;color:#6B6157;margin-top:8px;line-height:1.5">Appartement de caractère au cœur du centre historique.</div>
+          <div style="height:1px;background:rgba(60,50,40,.1);margin:20px 0 16px"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:8px"><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;letter-spacing:.06em;color:#3A322B;padding-left:.06em">S</span><span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#A89A86">une adresse Signatures</span></div>
+            <span class="decouvrir-link" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#7E8688">Découvrir →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- LE CLOS DE SAINT-JO -->
+      <a href="le-clos-de-saint-jo.html" class="hv5 adresse-card" data-tags="amis pro" style="background:#FAF7F1;border-radius:3px;box-shadow:0 22px 50px -30px rgba(45,33,20,.4);overflow:hidden;cursor:pointer;transition:all .35s;text-decoration:none;color:inherit;display:block">
+        <div style="position:relative;height:260px;border-radius:3px 3px 0 0;overflow:hidden">
+          <div class="img-slot adresse-photo" style="width:100%;height:100%;aspect-ratio:4/3;overflow:hidden"><img src="assets/img/adresse-transvaal.webp" alt="Photo Le Clos de Saint-Jo" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="adresse-photo-tint" style="position:absolute;inset:0;pointer-events:none"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:#B6A1AC"></div>
+        </div>
+        <div style="padding:26px 28px 28px">
+          <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9A8298">Centre-ville · 4 voyageurs</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;color:#241F1A;margin-top:8px;line-height:1">Le Clos de Saint-Jo</div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13.5px;color:#6B6157;margin-top:8px;line-height:1.5">Appartement de caractère dans le centre-ville de Dijon.</div>
+          <div style="height:1px;background:rgba(60,50,40,.1);margin:20px 0 16px"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:8px"><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;letter-spacing:.06em;color:#3A322B;padding-left:.06em">S</span><span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#A89A86">une adresse Signatures</span></div>
+            <span class="decouvrir-link" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9A8298">Découvrir →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- LA MAISON / PROMESSE -->
+  <section style="background:#EFE7DB;margin-top:70px">
+    <div class="promo-grid mw" style="max-width:1280px;margin:0 auto;padding:96px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8A9676">La collection</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:46px;color:#241F1A;margin-top:16px;line-height:1.1">Des appartements différents.<br><span style="font-style:italic">Une même promesse de qualité.</span></h2>
+        <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#544A40;margin-top:24px;max-width:480px">Chaque appartement possède sa propre identité, son atmosphère et sa façon de vivre Dijon. Du spa privatif aux grands appartements familiaux, en passant par les logements de caractère et les séjours professionnels, tous partagent la même exigence de confort, de qualité et d'accueil.</p>
+        <a class="hv6" href="#adresses" style="display:inline-block;margin-top:34px;border:1px solid #463C33;color:#463C33;padding:14px 28px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none">Voir toutes les adresses →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px">
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;color:#8A9676;letter-spacing:.06em">01</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#241F1A;margin-top:14px">Réservation directe</div>
+          <div style="font-family:'Jost',sans-serif;font-size:13.5px;color:#6B6157;margin-top:6px;line-height:1.5">Le meilleur tarif garanti.</div>
+        </div>
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;color:#8A9676;letter-spacing:.06em">02</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#241F1A;margin-top:14px">Appartements sélectionnés</div>
+          <div style="font-family:'Jost',sans-serif;font-size:13.5px;color:#6B6157;margin-top:6px;line-height:1.5">Des lieux choisis pour leur caractère et leur emplacement.</div>
+        </div>
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;color:#8A9676;letter-spacing:.06em">03</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#241F1A;margin-top:14px">Confort premium</div>
+          <div style="font-family:'Jost',sans-serif;font-size:13.5px;color:#6B6157;margin-top:6px;line-height:1.5">Des équipements soignés pour un séjour sans compromis.</div>
+        </div>
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;color:#8A9676;letter-spacing:.06em">04</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#241F1A;margin-top:14px">Au cœur de Dijon</div>
+          <div style="font-family:'Jost',sans-serif;font-size:13.5px;color:#6B6157;margin-top:6px;line-height:1.5">Une collection d'adresses pour découvrir la ville autrement.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section class="mw" style="max-width:1280px;margin:0 auto;padding:96px 48px 80px">
+    <div class="section-head" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:46px">
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8A9676">Le Journal</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;color:#241F1A;margin-top:14px;line-height:1.05">Inspirations &amp; <span style="font-style:italic">bonnes adresses</span></h2>
+      </div>
+      <a class="hv7" href="#" style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#5B664A;text-decoration:none">Tous les articles →</a>
+    </div>
+    <div class="journal-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+      <div class="hv8" style="cursor:pointer">
+        <div style="height:230px;border-radius:3px;background:repeating-linear-gradient(135deg,#E7DCC9 0 14px,#EFE7DB 14px 28px);display:flex;align-items:center;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#A8987E">PHOTO · ARTICLE</span></div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A9676;margin-top:18px">Découverte</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:25px;color:#241F1A;margin-top:8px;line-height:1.2">Un week-end pour ralentir</div>
+        <div style="font-family:'Jost',sans-serif;font-size:14px;color:#6B6157;margin-top:8px;line-height:1.5">Nos adresses et nos rituels pour une parenthèse vraiment reposante.</div>
+      </div>
+      <div class="hv8" style="cursor:pointer">
+        <div style="height:230px;border-radius:3px;background:repeating-linear-gradient(135deg,#E7DCC9 0 14px,#EFE7DB 14px 28px);display:flex;align-items:center;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#A8987E">PHOTO · ARTICLE</span></div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A9676;margin-top:18px">Gastronomie</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:25px;color:#241F1A;margin-top:8px;line-height:1.2">À table, près de chez nous</div>
+        <div style="font-family:'Jost',sans-serif;font-size:14px;color:#6B6157;margin-top:8px;line-height:1.5">Les tables que la Maison aime — du bistrot au grand restaurant.</div>
+      </div>
+      <div class="hv8" style="cursor:pointer">
+        <div style="height:230px;border-radius:3px;background:repeating-linear-gradient(135deg,#E7DCC9 0 14px,#EFE7DB 14px 28px);display:flex;align-items:center;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#A8987E">PHOTO · ARTICLE</span></div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A9676;margin-top:18px">Romantique</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:25px;color:#241F1A;margin-top:8px;line-height:1.2">L'art du séjour à deux</div>
+        <div style="font-family:'Jost',sans-serif;font-size:14px;color:#6B6157;margin-top:8px;line-height:1.5">Nos conseils pour un week-end qu'on n'oublie pas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#33362C;color:#E7E3D8">
+    <div class="mw footer-grid" style="max-width:1280px;margin:0 auto;padding:88px 48px 48px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:56px">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;letter-spacing:.1em;color:#F2EFE6;padding-left:.1em">S</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:#F2EFE6">Signatures</div>
+        </div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:rgba(231,227,216,.65);margin-top:22px;max-width:280px;line-height:1.5">Une collection d'adresses pour vivre Dijon autrement.</p>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,227,216,.55);margin-top:30px">Suivez-nous</div>
+        <div class="footer-link-row" style="display:flex;gap:22px;margin-top:14px;font-family:'Jost',sans-serif;font-size:13px;color:rgba(231,227,216,.75)">
+          <a href="#" class="footer-link">Instagram</a>
+          <a href="#" class="footer-link">Facebook</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,227,216,.6);margin-bottom:20px">Nos adresses</div>
+        <div class="footer-link-col" style="display:flex;flex-direction:column;gap:13px;font-family:'Jost',sans-serif;font-size:14px;color:rgba(231,227,216,.85)">
+          <a href="osmose.html" class="footer-link">Osmose</a>
+          <a href="mid-century.html" class="footer-link">Mid Century</a>
+          <a href="into-the-wine.html" class="footer-link">Into the Wine</a>
+          <a href="le-clos-de-saint-jo.html" class="footer-link">Le Clos de Saint-Jo</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,227,216,.6);margin-bottom:20px">Découvrir</div>
+        <div class="footer-link-col" style="display:flex;flex-direction:column;gap:13px;font-family:'Jost',sans-serif;font-size:14px;color:rgba(231,227,216,.85)">
+          <a href="#envies" class="footer-link">Expériences</a>
+          <a href="#" class="footer-link">Le Journal</a>
+          <a href="#" class="footer-link">À propos</a>
+          <a href="#" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,227,216,.6);margin-bottom:20px">Informations</div>
+        <div class="footer-link-col" style="display:flex;flex-direction:column;gap:13px;font-family:'Jost',sans-serif;font-size:14px;color:rgba(231,227,216,.85)">
+          <a href="reservation.html" class="footer-link">Réserver</a>
+          <a href="#" class="footer-link">Conditions Générales de Vente</a>
+          <a href="#" class="footer-link">Politique de confidentialité</a>
+          <a href="#" class="footer-link">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(247,243,238,.16);margin-top:16px">
+      <div class="mw" style="max-width:1280px;margin:0 auto;padding:24px 48px">
+        <div style="font-family:'Jost',sans-serif;font-size:12px;color:rgba(231,227,216,.5)">© 2026 Signatures — Tous droits réservés.</div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;color:rgba(231,227,216,.35);margin-top:4px">Une collection d'adresses à Dijon.</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script>
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('.envie-pick');
+    if (el) filterAdresses(el.getAttribute('data-envie'), el);
+  });
+  window.addEventListener('scroll', () => {
+    const h = document.getElementById('site-header');
+    if (!h) return;
+    if (window.scrollY > 100) h.classList.add('nav-scrolled');
+    else h.classList.remove('nav-scrolled');
+  }, { passive: true });
+
+
+  function filterAdresses(key, el) {
+    const picks = document.querySelectorAll('.envie-pick');
+    const already_active = el.getAttribute('data-active') === '1';
+    picks.forEach((p) => p.removeAttribute('data-active'));
+    const cards = document.querySelectorAll('.adresse-card');
+    if (already_active) {
+      cards.forEach((c) => { c.style.display = ''; requestAnimationFrame(() => { c.style.opacity = '1'; c.style.transform = 'none'; }); });
+      return;
+    }
+    el.setAttribute('data-active', '1');
+    cards.forEach((c) => {
+      const tags = (c.getAttribute('data-tags') || '').split(' ');
+      const match = tags.includes(key);
+      if (match) {
+        c.style.display = '';
+        requestAnimationFrame(() => { c.style.opacity = '1'; c.style.transform = 'none'; });
+      } else {
+        c.style.opacity = '0';
+        c.style.transform = 'translateY(8px)';
+        setTimeout(() => { c.style.display = 'none'; }, 400);
+      }
+    });
+  }
+
+document.addEventListener('click', function (e) {
+  if (document.body.classList.contains('nav-open') && !e.target.closest('header')) {
+    document.body.classList.remove('nav-open');
+  }
+});
+document.querySelectorAll('.site-nav a').forEach(function (a) {
+  a.addEventListener('click', function () { document.body.classList.remove('nav-open'); });
+});
+</script>
+</body>
+</html>
